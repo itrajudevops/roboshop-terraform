@@ -1,3 +1,4 @@
+#This Script Creating servers and DNS records using hardcoded values
 data "aws_ami" "centos" {
   owners          = ["973714476881"]
   most_recent     = true
