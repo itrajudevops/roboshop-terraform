@@ -14,6 +14,13 @@ resource "aws_instance" "frontend" {
     Name = "frontend"
   }
 }
+resource "aws_route53_record" "frontend" {
+  zone_id = Z02014591Z70N88NV47NU
+  name    = "frontend-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.frontend.private_ip]
+}
 
 output "frontend_public_ip" {
   value = aws_instance.frontend.public_ip
