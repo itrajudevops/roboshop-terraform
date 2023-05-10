@@ -34,7 +34,13 @@ resource "aws_instance" "mongodb" {
     Name = "mongodb"
   }
 }
-
+resource "aws_route53_record" "mongodb" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "mongodb-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.mongodb.private_ip]
+}
 resource "aws_instance" "catalogue" {
   ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
@@ -42,6 +48,13 @@ resource "aws_instance" "catalogue" {
   tags = {
     Name = "catalogue"
   }
+}
+resource "aws_route53_record" "catalogue" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "catalogue-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.catalogue.private_ip]
 }
 
 resource "aws_instance" "redis" {
@@ -52,7 +65,13 @@ resource "aws_instance" "redis" {
     Name = "redis"
   }
 }
-
+resource "aws_route53_record" "redis" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "redis-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.redis.private_ip]
+}
 resource "aws_instance" "user" {
   ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
@@ -60,6 +79,13 @@ resource "aws_instance" "user" {
   tags = {
     Name = "user"
   }
+}
+resource "aws_route53_record" "user" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "user-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.user.private_ip]
 }
 
 resource "aws_instance" "cart" {
@@ -70,7 +96,13 @@ resource "aws_instance" "cart" {
     Name = "cart"
   }
 }
-
+resource "aws_route53_record" "cart" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "cart-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.cart.private_ip]
+}
 resource "aws_instance" "mysql" {
   ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
@@ -79,7 +111,13 @@ resource "aws_instance" "mysql" {
     Name = "mysql"
   }
 }
-
+resource "aws_route53_record" "mysql" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "mysql-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.mysql.private_ip]
+}
 resource "aws_instance" "shipping" {
   ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
@@ -88,7 +126,13 @@ resource "aws_instance" "shipping" {
     Name = "shipping"
   }
 }
-
+resource "aws_route53_record" "shipping" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "shipping-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.shipping.private_ip]
+}
 resource "aws_instance" "rabbitmq" {
   ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
@@ -97,7 +141,13 @@ resource "aws_instance" "rabbitmq" {
     Name = "rabbitmq"
   }
 }
-
+resource "aws_route53_record" "rabbitmq" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "rabbitmq-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.rabbitmq.private_ip]
+}
 resource "aws_instance" "payment" {
   ami           = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
@@ -105,6 +155,13 @@ resource "aws_instance" "payment" {
   tags = {
     Name = "payment"
   }
+}
+resource "aws_route53_record" "payment" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "payment-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.payment.private_ip]
 }
 
 resource "aws_instance" "dispatch" {
@@ -114,4 +171,11 @@ resource "aws_instance" "dispatch" {
   tags = {
     Name = "dispatch"
   }
+}
+resource "aws_route53_record" "dispatch" {
+  zone_id = "Z02014591Z70N88NV47NU"
+  name    = "dispatch-dev.itdevopsb72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.dispatch.private_ip]
 }
