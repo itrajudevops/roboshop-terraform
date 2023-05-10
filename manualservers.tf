@@ -15,7 +15,7 @@ resource "aws_instance" "frontend" {
   }
 }
 resource "aws_route53_record" "frontend" {
-  zone_id = Z02014591Z70N88NV47NU
+  zone_id = "Z02014591Z70N88NV47NU"
   name    = "frontend-dev.itdevopsb72.online"
   type    = "A"
   ttl     = 30
